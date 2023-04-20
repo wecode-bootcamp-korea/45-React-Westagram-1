@@ -1,4 +1,5 @@
 import './Login.scss';
+import '../../../styles/common.scss';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Inputs() {

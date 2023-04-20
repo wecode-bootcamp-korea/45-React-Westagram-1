@@ -1,9 +1,10 @@
 import './Main.scss';
+import '../../../styles/common.scss';
 
 //위스타 배너
 function Nav() {
   return (
-    <nav>
+    <nav className="navigation">
       <div class="insta">
         <i class="fa-brands fa-instagram fa-xl" />
         <span>Westagram</span>
@@ -49,30 +50,26 @@ function FeedImage() {
 function BottomIcon() {
   return (
     <div class="bottomIcon">
-      <button id="icon-button">
+      <button class="iconButton">
         <img
-          id="좋아요"
           alt="하트 아이콘"
-          class="icons"
+          class="icons like"
           src="/images/kyoungjinLee/heart.png"
         />
       </button>
       <img
-        id="comment-icon"
         alt="댓글 아이콘"
-        class="icons"
+        class="icons comment"
         src="/images/kyoungjinLee/comments-2.png"
       />
       <img
-        id="upload"
-        class="icons"
+        class="icons upload"
         alt="업로드 아이콘"
         src="/images/kyoungjinLee/upload.png"
       />
       <img
-        id="scrap"
         alt="스크랩 아이콘"
-        class="icons"
+        class="icons scrap"
         src="/images/kyoungjinLee/스크랩.png"
       />
     </div>
