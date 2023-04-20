@@ -1,15 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import MainJeonga from './pages/jeongaYeon/Main/Main';
 import LoginJeonga from './pages/jeongaYeon/Login/Login';
-
 import MainKyoungjin from './pages/kyoungjinLee/Main/Main';
 import LoginKyoungjin from './pages/kyoungjinLee/Login/Login';
-
 import MainSujeong from './pages/sujeongKim/Main/Main';
 import LoginSujeong from './pages/sujeongKim/Login/Login';
-
 import MainWonjun from './pages/wonjunLee/Main/Main';
 import LoginWonjun from './pages/wonjunLee/Login/Login';
 
