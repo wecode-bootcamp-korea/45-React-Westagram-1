@@ -1,0 +1,382 @@
+.navWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 300px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+
+  .navLogo {
+    display: flex;
+    align-items: flex-start;
+
+    .navLogoIcon {
+      font-size: 30px;
+    }
+
+    .navLogoIcon,
+    .navLogoCenter {
+      margin-right: 10px;
+    }
+
+    .navLogoCenter {
+      width: 1px;
+      height: 30px;
+      background-color: rgba(128, 128, 128, 0.8);
+    }
+
+    .navLogoTitle {
+      font-family: 'Lobster', cursive;
+      font-size: 30px;
+    }
+  }
+
+  .navSearch {
+    position: relative;
+
+    .navSearchInput {
+      position: relative;
+      top: 2px;
+      height: 23px;
+      padding-left: 60px;
+      border: 1px solid rgba(128, 128, 128, 0.8);
+      background-color: rgba(128, 128, 128, 0.1);
+    }
+
+    .navSearchIcon {
+      position: absolute;
+      top: 5px;
+      left: 40px;
+      color: rgba(128, 128, 128, 0.8);
+    }
+  }
+
+  .navInfo {
+    img {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.mainWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 70px 210px;
+
+  .feeds {
+    width: 600px;
+    border-radius: 3px;
+
+    article {
+      border: 1px solid rgba(128, 128, 128, 0.8);
+      border-radius: 3px;
+
+      .feedsHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+
+        .feedsHeaderProfile {
+          display: flex;
+          align-items: center;
+
+          .profileImage {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 50%;
+          }
+
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .feedContent {
+        padding: 0 10px;
+
+        span:first-child {
+          font-weight: bold;
+        }
+
+        span:last-child {
+          color: gray;
+        }
+      }
+
+      .feedImage {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
+
+      .feedIcons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+
+        .feedIconsLeft {
+          display: flex;
+          align-items: center;
+
+          i {
+            margin-right: 10px;
+          }
+
+          i:first-child {
+            color: red;
+          }
+        }
+        i {
+          font-size: 25px;
+        }
+      }
+
+      .feedHeart {
+        display: flex;
+        align-items: center;
+        padding-top: 0px;
+
+        img {
+          margin-right: 10px;
+          border-radius: 50%;
+        }
+
+        div span {
+          font-weight: bold;
+        }
+      }
+
+      .feedIcons,
+      .feedHeart {
+        padding: 10px;
+      }
+
+      .feedComments {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+
+        .feedComment {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .feedComment p {
+          display: flex;
+          align-items: center;
+
+          .commentId {
+            margin-right: 5px;
+          }
+
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .feedComment,
+      .feedComments,
+      .feedTime {
+        line-height: 20px;
+      }
+
+      .heart:hover {
+        cursor: pointer;
+      }
+
+      .feedTime {
+        padding: 0 10px 10px 10px;
+        color: gray;
+      }
+
+      .writeComment {
+        position: relative;
+
+        input {
+          width: 100%;
+          margin-bottom: 3px;
+          padding: 10px;
+          padding-top: 15px;
+          border: none;
+          border-top: 1px solid gray;
+        }
+
+        .writeComment input:focus {
+          outline-style: none;
+        }
+
+        span {
+          position: absolute;
+          top: 15px;
+          right: 10px;
+          color: skyblue;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .mainRight {
+    width: 280px;
+    margin-left: 30px;
+
+    .userProfile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .userProfileImg {
+        img {
+          width: 50px;
+          border-radius: 50%;
+        }
+      }
+
+      .userProfileInfo {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        line-height: 20px;
+
+        .userName {
+          color: gray;
+        }
+      }
+    }
+
+    .story {
+      height: 200px;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid rgba(128, 128, 128, 0.8);
+      border-radius: 3px;
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span:first-child {
+          color: gray;
+        }
+
+        span:last-child {
+          font-weight: bold;
+        }
+      }
+
+      .storyUsers {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+
+        img {
+          width: 40px;
+          height: 40px;
+          margin-right: 10px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          span {
+            line-height: 20px;
+          }
+
+          span:first-child {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .recommendation {
+      height: 170px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid rgba(128, 128, 128, 0.8);
+      border-radius: 3px;
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span:first-child {
+          color: gray;
+        }
+
+        span:last-child {
+          font-weight: bold;
+        }
+      }
+
+      .recommendationUsers {
+        display: flex;
+        position: relative;
+        align-items: center;
+        margin: 5px 0;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          line-height: 20px;
+
+          span:first-child {
+            font-weight: bold;
+          }
+
+          span:last-child {
+            color: gray;
+          }
+        }
+
+        img {
+          width: 35px;
+          height: 35px;
+          margin-right: 10px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .follow {
+          position: absolute;
+          right: 0px;
+          color: #0095f6;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .footer {
+      color: gray;
+    }
+
+    .footer p {
+      margin-bottom: 25px;
+      line-height: 20px;
+    }
+  }
+}
+
+.commentDelete:hover {
+  cursor: pointer;
+}
+
+.commentBtnOn:hover {
+  cursor: pointer;
+}
