@@ -178,6 +178,10 @@
             margin-right: 5px;
           }
 
+          .commentContent {
+            font-weight: normal;
+          }
+
           span {
             font-weight: bold;
           }
@@ -211,7 +215,7 @@
           border-top: 1px solid gray;
         }
 
-        .writeComment input:focus {
+        .writeCommentInput:focus {
           outline-style: none;
         }
 
@@ -221,6 +225,9 @@
           right: 10px;
           color: skyblue;
           font-size: 13px;
+        }
+        .writeCommentBtn {
+          font-weight: bold;
         }
       }
     }

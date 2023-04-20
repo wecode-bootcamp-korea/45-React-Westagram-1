@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
 
 const MainJeonga = () => {
+  const [comments, setComments] = useState([]);
+  const [value, setValue] = useState('');
+
+  const handleComment = event => {
+    const comment = event.target.value;
+    setValue(comment);
+    if (event.keyCode === 13) {
+      setComments(current => [...current, comment]);
+      setValue('');
+    }
+  };
+
+  const handleCommentBtn = () => {
+    setComments(current => [...current, value]);
+    setValue('');
+  };
+
+  const handleCommentInput = event => {
+    setValue(event.target.value);
+  };
+
+  console.log(comments);
+
   return (
     <div className="main">
       <div className="wrapper">
@@ -78,6 +101,7 @@ const MainJeonga = () => {
                 <span>더 보기</span>
               </p>
               <div className="feedComments">
+                {/* 이 부분 컴포넌트화 하기 */}
                 <div className="feedComment">
                   <p>
                     <span className="commentId">qxxxqwwi</span>
@@ -87,14 +111,39 @@ const MainJeonga = () => {
                     <i className="far fa-heart heart false" />
                   </div>
                 </div>
+                {comments.map((comment, index) => (
+                  <div key={index} className="feedComment">
+                    <p>
+                      <span className="commentId">candy_lp</span>
+                      <span className="commentContent">{comment}</span>
+                    </p>
+                    <div className="commentIconWrapper">
+                      <i className="far fa-heart heart false" />
+                    </div>
+                  </div>
+                ))}
               </div>
               <p className="feedTime">42분 전</p>
               <div className="writeComment">
                 <input
+                  onKeyUp={handleComment}
                   className="writeCommentInput"
                   placeholder="댓글 달기..."
+                  value={value}
+                  onChange={handleCommentInput}
                 />
-                <span className="writeCommentBtn">게시</span>
+                <span
+                  onClick={handleCommentBtn}
+                  className={
+                    value
+                      ? value.length > 0
+                        ? 'writeCommentBtn'
+                        : 'noWriteCommntBtn'
+                      : 'noValue'
+                  }
+                >
+                  게시
+                </span>
               </div>
             </article>
           </section>
