@@ -47,10 +47,14 @@
     background-color: #c4e1fb;
     color: white;
   }
-}
 
-.blue:hover {
-  cursor: pointer;
+  .loginButtonBlue {
+    background-color: #0095f6;
+    &:hover {
+      background-color: #1877f2;
+      cursor: pointer;
+    }
+  }
 }
 
 .findPassword {

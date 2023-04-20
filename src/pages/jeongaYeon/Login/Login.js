@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.scss';
 import { useNavigate } from 'react-router-dom';
 
 const LoginJeonga = () => {
-  const [id, setId] = useState();
-  const [password, setPassword] = useState();
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [valid, setValid] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -14,12 +15,26 @@ const LoginJeonga = () => {
   const saveUserId = event => {
     let userId = event.target.value;
     setId(userId);
+    checkValid();
   };
 
   const saveUserPassword = event => {
     let userPassword = event.target.value;
     setPassword(userPassword);
+    checkValid();
   };
+
+  const checkValid = () => {
+    if (id.indexOf('@') !== -1 && password.length > +4) {
+      setValid(true);
+    } else {
+      setValid(false);
+    }
+  };
+
+  // useEffect(() => {
+  //   checkValid();
+  // }, [password, id]);
 
   return (
     <main className="container">
@@ -43,7 +58,11 @@ const LoginJeonga = () => {
                 type="password"
               />
             </div>
-            <button className="loginButton" onClick={handleLogin}>
+            <button
+              className={valid ? 'loginButton loginButtonBlue' : 'loginButton'}
+              onClick={handleLogin}
+              disabled={valid ? false : true}
+            >
               로그인
             </button>
             <span className="findPassword">비밀번호를 잊으셨나요?</span>
