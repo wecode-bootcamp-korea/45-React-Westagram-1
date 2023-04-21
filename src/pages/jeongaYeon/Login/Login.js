@@ -25,7 +25,7 @@ const LoginJeonga = () => {
   };
 
   const checkValid = () => {
-    if (id.indexOf('@') !== -1 && password.length > +4) {
+    if (id.indexOf('@') !== -1 && password.length >= 4) {
       setValid(true);
     } else {
       setValid(false);
