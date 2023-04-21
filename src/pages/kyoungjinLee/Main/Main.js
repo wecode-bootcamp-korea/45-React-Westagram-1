@@ -149,7 +149,7 @@ function StoryTop() {
 //스토리 박스 내 사람들
 function StoryPeople() {
   return (
-    <div class="story-people">
+    <div class="storyPeople">
       <ul>
         <li id="story1">
           <img
@@ -185,7 +185,7 @@ function StoryPeople() {
 //추천 피드 위쪽 글씨
 function RecommendTop() {
   return (
-    <div class="recommend-top">
+    <div class="recommendTop">
       <span class="rightTop">회원님을 위한 추천</span>
       <button class="seeAll">모두 보기</button>
     </div>
@@ -195,7 +195,7 @@ function RecommendTop() {
 //추천 피드 사람들
 function RecommendList() {
   return (
-    <div class="recommend-list">
+    <div class="recommendList">
       <ul>
         <li id="recommend1">
           <img
@@ -230,9 +230,9 @@ function RecommendList() {
 function Footer() {
   return (
     <div class="footer">
-      Instagram 정보 . 지원 . 홍보 센터 . API . <br />
-      채용 정보 . 개인정보처리방침 . 약관 . <br />
-      디렉터리 . 프로필 . 해시태그 . 언어
+      <p>Instagram 정보 . 지원 . 홍보 센터 . API . </p>
+      <p>채용 정보 . 개인정보처리방침 . 약관 . </p>
+      <p> 디렉터리 . 프로필 . 해시태그 . 언어</p>
       <p>&copy; 2023 INSTAGRAM</p>
     </div>
   );

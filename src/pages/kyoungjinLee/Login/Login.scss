@@ -54,6 +54,10 @@
 
       .yesLogin {
         background-color: #5062ff;
+
+        &:hover {
+          cursor: url('../../../assets/kyoungjinLee/쿠로미사진.png'), pointer;
+        }
       }
     }
   }
