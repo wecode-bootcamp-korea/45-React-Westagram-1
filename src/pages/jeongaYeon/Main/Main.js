@@ -9,6 +9,7 @@ const MainJeonga = () => {
 
   const handleComment = event => {
     const comment = event.target.value;
+    if (comment.length <= 0) return;
     setValue(comment);
     if (event.keyCode === 13) {
       setComments(current => [...current, comment]);
@@ -17,6 +18,7 @@ const MainJeonga = () => {
   };
 
   const handleCommentBtn = () => {
+    if (value <= 0) return;
     setComments(current => [...current, value]);
     setValue('');
   };
