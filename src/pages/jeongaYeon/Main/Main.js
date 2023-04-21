@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Main.scss';
+import './Comment.scss';
+import Comment from './Comment';
 
 const MainJeonga = () => {
   const [comments, setComments] = useState([]);
@@ -22,8 +24,6 @@ const MainJeonga = () => {
   const handleCommentInput = event => {
     setValue(event.target.value);
   };
-
-  console.log(comments);
 
   return (
     <div className="main">
@@ -101,7 +101,6 @@ const MainJeonga = () => {
                 <span>더 보기</span>
               </p>
               <div className="feedComments">
-                {/* 이 부분 컴포넌트화 하기 */}
                 <div className="feedComment">
                   <p>
                     <span className="commentId">qxxxqwwi</span>
@@ -112,15 +111,7 @@ const MainJeonga = () => {
                   </div>
                 </div>
                 {comments.map((comment, index) => (
-                  <div key={index} className="feedComment">
-                    <p>
-                      <span className="commentId">candy_lp</span>
-                      <span className="commentContent">{comment}</span>
-                    </p>
-                    <div className="commentIconWrapper">
-                      <i className="far fa-heart heart false" />
-                    </div>
-                  </div>
+                  <Comment comment={comment} key={index} />
                 ))}
               </div>
               <p className="feedTime">42분 전</p>
