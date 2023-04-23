@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
+import LoginButton from './LoginButton';
 
 const LoginSujeong = () => {
   const [userId, setUserId] = useState('');
@@ -8,7 +9,7 @@ const LoginSujeong = () => {
   const navigate = useNavigate();
 
   const goToMain = () => {
-    navigate('/Main');
+    navigate('/main-sujeong');
   };
 
   return (
@@ -35,25 +36,13 @@ const LoginSujeong = () => {
             }}
           />
           {userId.includes('@') && userPw.length >= 5 ? (
-            <button
-              disabled={false}
-              className="loginBtn loginBtnOn"
-              onClick={() => {
-                goToMain();
-              }}
-            >
-              로그인
-            </button>
+            <LoginButton
+              btnOn={false}
+              goToMain={goToMain}
+              BtnColor={'loginBtnOn'}
+            />
           ) : (
-            <button
-              disabled={true}
-              className="loginBtn"
-              onClick={() => {
-                goToMain();
-              }}
-            >
-              로그인
-            </button>
+            <LoginButton btnOn={true} goToMain={'/'} BtnColor={''} />
           )}
         </form>
         <a href="/" className="findPw">

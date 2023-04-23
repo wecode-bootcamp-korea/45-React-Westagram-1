@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Main.scss';
+import CommentItem from './CommentItem';
 
 const MainSujeong = () => {
   const [id, setId] = useState(1);
@@ -99,15 +100,11 @@ const MainSujeong = () => {
                 </li>
                 {addComments.map(comment => {
                   return (
-                    <li className="commentList" key={comment.id}>
-                      <div>
-                        <span className="userIdInComment">
-                          {comment.userId}
-                        </span>
-                        <span>{comment.comment}</span>
-                      </div>
-                      <p className="postingTime">35분 전</p>
-                    </li>
+                    <CommentItem
+                      id={comment.id}
+                      userId={comment.userId}
+                      comment={comment.comment}
+                    />
                   );
                 })}
               </ul>
