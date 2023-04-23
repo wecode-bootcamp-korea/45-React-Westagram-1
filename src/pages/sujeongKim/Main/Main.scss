@@ -14,14 +14,12 @@
     & > img {
       width: 30px;
       height: 30px;
-      padding-right: 20px;
-      border-right: 2px solid black;
     }
 
     .logo {
       margin-left: 20px;
-      padding: 0 0 5px 0;
-      font-family: 'Lobster';
+      padding: 0 0 5px 20px;
+      border-left: 2px solid black;
       font-size: 30px;
     }
   }
@@ -189,7 +187,7 @@
         display: flex;
         flex-direction: row;
 
-        .useridInComment {
+        .userIdInComment {
           margin-right: 5px;
           float: left;
           font-weight: 600;
@@ -211,10 +209,10 @@
           color: #999999;
           cursor: pointer;
         }
-      }
-
-      .postingTime {
-        color: #888888;
+        .postingTime {
+          margin-left: 10px;
+          color: #888888;
+        }
       }
     }
 
@@ -231,7 +229,6 @@
         border: none;
 
         &::placeholder {
-          font-family: 'Noto Sans KR';
           font-size: 15px;
           font-weight: 400;
         }
@@ -316,8 +313,8 @@
           background-color: tomato;
 
           & > img {
-            width: 32px;
-            height: 32px;
+            width: 35px;
+            height: 35px;
             border: 2px solid #ffffff;
             border-radius: 100%;
           }

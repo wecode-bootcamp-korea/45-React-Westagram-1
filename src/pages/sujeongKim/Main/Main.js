@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
 
 const MainSujeong = () => {
+  const [id, setId] = useState(1);
+  const [comment, setComment] = useState('');
+  const USER_ID = 'krystal170';
+  const [addComments, setAddComments] = useState([]);
+
+  const onChangeHandler = e => {
+    setComment(e.target.value);
+    console.log('onChangeHandler', comment);
+  };
+
+  const onClickHandler = () => {
+    setAddComments([...addComments, { id, userId: USER_ID, comment }]);
+    setId(id => ++id);
+    console.log('onClickHandler', addComments);
+  };
+  const resetValue = () => {
+    console.log('resetValue', comment);
+    setComment('');
+  };
   return (
     <React.Fragment>
       <nav className="nav">
         <div className="logoGroup">
-          <img src="/images/001-instagram.png" alt="westagram 로고 이미지" />
+          <img
+            src="/images/sujeongKim/001-instagram.png"
+            alt="westagram 로고 이미지"
+          />
           <h1 className="logo">westagram</h1>
         </div>
         <input
@@ -26,8 +48,11 @@ const MainSujeong = () => {
           <article>
             <header>
               <div>
-                <img src="/images/profileImg.jpg" alt="프로필 사진" />
-                <p>krystalk170</p>
+                <img
+                  src="/images/sujeongKim/profile_img.jpg"
+                  alt="프로필 사진"
+                />
+                <p>{USER_ID}</p>
               </div>
               <span className="material-symbols-outlined hiddenBtn">
                 moreVert
@@ -35,7 +60,7 @@ const MainSujeong = () => {
             </header>
             <section className="postImgArea">
               <img
-                src="/images/profileImg.jpg"
+                src="/images/sujeongKim/profile_img.jpg"
                 className="postImg"
                 alt="게시물 이미지"
               />
@@ -58,32 +83,65 @@ const MainSujeong = () => {
                 </span>
               </div>
               <div className="postLike">
-                <img src="images/profileImg.jpg" alt="프로필 이미지" />
+                <img
+                  src="/images/sujeongKim/profile_img.jpg"
+                  alt="프로필 이미지"
+                />
                 <p>
-                  <span>krystalk170</span>님 <span>외 10명</span>이 좋아합니다
+                  <span>{USER_ID}</span>님 <span>외 10명</span>이 좋아합니다
                 </p>
               </div>
-              <ul className="commentList">
-                <li>
-                  <span className="useridInComment">Krystalk170</span>
+              <ul>
+                <li className="commentList">
+                  <span className="userIdInComment">{USER_ID}</span>
                   <span className="comment">하겐다즈 먹고싶당</span>
+                  <p className="postingTime">35분 전</p>
                 </li>
+                {addComments.map(comment => {
+                  return (
+                    <li className="commentList" key={comment.id}>
+                      <div>
+                        <span className="userIdInComment">
+                          {comment.userId}
+                        </span>
+                        <span>{comment.comment}</span>
+                      </div>
+                      <p className="postingTime">35분 전</p>
+                    </li>
+                  );
+                })}
               </ul>
-              <p className="postingIime">35분 전</p>
             </div>
-            <div className="commentInputArea">
+            <form
+              action="#"
+              onSubmit={e => {
+                e.preventDefault();
+              }}
+              className="commentInputArea"
+            >
               <input
                 type="text"
+                name="comment"
                 className="commentInput"
                 placeholder="댓글 달기..."
+                onChange={e => onChangeHandler(e)}
+                value={comment}
               />
-              <button className="commentInputBtn">게시</button>
-            </div>
+              <button
+                className="commentInputBtn"
+                onClick={() => {
+                  onClickHandler();
+                  resetValue();
+                }}
+              >
+                게시
+              </button>
+            </form>
           </article>
         </div>
         <div className="mainRight">
           <div className="userInfo">
-            <img src="images/profileImg.jpg" alt="프로필 사진" />
+            <img src="/images/sujeongKim/profile_img.jpg" alt="프로필 사진" />
             <div className="userInfoTxt">
               <p>reveur1920</p>
               <p>mara shanggua</p>
@@ -97,7 +155,10 @@ const MainSujeong = () => {
             <ul className="storyList">
               <li>
                 <div className="storyProfileImgBorder">
-                  <img src="images/profileImg.jpg" alt="프로필 사진" />
+                  <img
+                    src="/images/sujeongKim/profile_img.jpg"
+                    alt="프로필 사진"
+                  />
                 </div>
                 <div className="storyUserInfo">
                   <p>icecream486</p>
@@ -106,7 +167,10 @@ const MainSujeong = () => {
               </li>
               <li>
                 <div className="storyProfileImgBorder">
-                  <img src="images/profileImg.jpg" alt="프로필 사진" />
+                  <img
+                    src="/images/sujeongKim/profile_img.jpg"
+                    alt="프로필 사진"
+                  />
                 </div>
                 <div className="storyUserInfo">
                   <p>chocochoco123</p>
@@ -123,7 +187,10 @@ const MainSujeong = () => {
             <ul className="recommendList">
               <li>
                 <div className="recommendInfoArea">
-                  <img src="images/profileImg.jpg" alt="프로필 사진" />
+                  <img
+                    src="/images/sujeongKim/profile_img.jpg"
+                    alt="프로필 사진"
+                  />
                   <div className="recommendUserInfo">
                     <p>sushi987</p>
                     <p>icecream123님 외 10명이 팔로우하고 있습니다</p>
@@ -133,7 +200,7 @@ const MainSujeong = () => {
               </li>
             </ul>
           </div>
-          <footer className="MainFooter">
+          <footer className="mainFooter">
             <ul className="footerTop">
               <li>소개</li>
               <li>도움말</li>
