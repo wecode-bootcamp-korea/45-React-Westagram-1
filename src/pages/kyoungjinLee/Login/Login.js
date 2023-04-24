@@ -1,7 +1,7 @@
-import './Login.scss';
-import '../../../styles/common.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import './Login.scss';
+import '../../../styles/common.scss';
 
 function Footer() {
   return (
