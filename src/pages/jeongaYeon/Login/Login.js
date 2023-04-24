@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -25,16 +25,16 @@ const LoginJeonga = () => {
   };
 
   const checkValid = () => {
-    if (id.indexOf('@') !== -1 && password.length >= 4) {
+    if (id.indexOf('@') !== -1 && password.length > 4) {
       setValid(true);
     } else {
       setValid(false);
     }
   };
 
-  // useEffect(() => {
-  //   checkValid();
-  // }, [password, id]);
+  useEffect(() => {
+    checkValid();
+  }, [id, password]);
 
   return (
     <main className="container">

@@ -238,9 +238,10 @@
     }
 
     .story {
-      height: 200px;
+      height: 180px;
       margin-top: 20px;
       padding: 10px;
+      overflow: hidden;
       border: 1px solid rgba(128, 128, 128, 0.8);
       border-radius: 3px;
 
@@ -286,10 +287,11 @@
     }
 
     .recommendation {
-      height: 170px;
+      height: 160px;
       margin-top: 20px;
       margin-bottom: 20px;
       padding: 10px;
+      overflow: hidden;
       border: 1px solid rgba(128, 128, 128, 0.8);
       border-radius: 3px;
 
@@ -311,7 +313,7 @@
         display: flex;
         position: relative;
         align-items: center;
-        margin: 5px 0;
+        margin: 10px 0;
 
         div {
           display: flex;
