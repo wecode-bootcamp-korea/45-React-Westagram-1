@@ -1,13 +1,12 @@
 import React from 'react';
 import './LoginButton.scss';
 
-const LoginButton = props => {
-  console.log(props);
+const LoginButton = ({ btnOn, BtnColor, goToMain }) => {
   return (
     <button
-      disabled={props.btnOn}
-      className={`loginBtn ${props.BtnColor}`}
-      onClick={() => props.goToMain()}
+      disabled={btnOn}
+      className={`loginBtn ${BtnColor}`}
+      onClick={() => goToMain()}
     >
       로그인
     </button>

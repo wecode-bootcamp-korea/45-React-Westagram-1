@@ -7,7 +7,7 @@ const LoginSujeong = () => {
   const [userId, setUserId] = useState('');
   const [userPw, setUserPw] = useState('');
   const navigate = useNavigate();
-
+  const loginValid = userId.includes('@') && userPw.length >= 5;
   const goToMain = () => {
     navigate('/main-sujeong');
   };
@@ -35,15 +35,12 @@ const LoginSujeong = () => {
               setUserPw(e.target.value);
             }}
           />
-          {userId.includes('@') && userPw.length >= 5 ? (
-            <LoginButton
-              btnOn={false}
-              goToMain={goToMain}
-              BtnColor={'loginBtnOn'}
-            />
-          ) : (
-            <LoginButton btnOn={true} goToMain={'/'} BtnColor={''} />
-          )}
+
+          <LoginButton
+            btnOn={loginValid ? false : true}
+            goToMain={loginValid ? goToMain : '/'}
+            BtnColor={loginValid ? 'loginBtnOn' : ''}
+          />
         </form>
         <a href="/" className="findPw">
           비밀번호를 잊으셨나요?
