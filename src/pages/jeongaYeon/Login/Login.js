@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const LoginJeonga = () => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
-  const [valid, setValid] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -14,25 +13,13 @@ const LoginJeonga = () => {
 
   const saveUserId = event => {
     setId(event.target.value);
-    checkValid();
   };
 
   const saveUserPassword = event => {
     setPassword(event.target.value);
-    checkValid();
   };
 
-  const checkValid = () => {
-    if (id.indexOf('@') !== -1 && password.length > 4) {
-      setValid(true);
-    } else {
-      setValid(false);
-    }
-  };
-
-  useEffect(() => {
-    checkValid();
-  }, [id, password]);
+  const checkValid = id.indexOf('@') === -1 || password.length < 5;
 
   return (
     <main className="login">
@@ -57,9 +44,11 @@ const LoginJeonga = () => {
               />
             </div>
             <button
-              className={valid ? 'loginButton loginButtonBlue' : 'loginButton'}
+              className={
+                !checkValid ? 'loginButton loginButtonBlue' : 'loginButton'
+              }
               onClick={handleLogin}
-              disabled={!valid}
+              disabled={checkValid}
             >
               로그인
             </button>
