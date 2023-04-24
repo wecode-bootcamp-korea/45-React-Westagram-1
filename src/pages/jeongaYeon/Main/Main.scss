@@ -51,7 +51,7 @@
   }
 
   .navInfo {
-    img {
+    .navInfoImg {
       width: 30px;
       height: 30px;
       margin-left: 10px;
@@ -68,7 +68,7 @@
     width: 600px;
     border-radius: 3px;
 
-    article {
+    .feedsWrapper {
       border: 1px solid rgba(128, 128, 128, 0.8);
       border-radius: 3px;
 
@@ -91,7 +91,7 @@
             object-position: 50% 50%;
           }
 
-          span {
+          .profileId {
             font-weight: bold;
           }
         }
@@ -144,12 +144,12 @@
         align-items: center;
         padding-top: 0px;
 
-        img {
+        .feedHeartImg {
           margin-right: 10px;
           border-radius: 50%;
         }
 
-        div span {
+        .feedHeartUsers span {
           font-weight: bold;
         }
       }
@@ -182,7 +182,7 @@
       .writeComment {
         position: relative;
 
-        input {
+        .writeCommentInput {
           width: 100%;
           margin-bottom: 3px;
           padding: 10px;
@@ -195,7 +195,7 @@
           outline-style: none;
         }
 
-        span {
+        .writeComBtn {
           position: absolute;
           top: 15px;
           right: 10px;
@@ -219,7 +219,7 @@
       margin-bottom: 20px;
 
       .userProfileImg {
-        img {
+        .userImg {
           width: 50px;
           border-radius: 50%;
         }
@@ -264,7 +264,7 @@
         align-items: center;
         margin: 15px 0;
 
-        img {
+        .storyUsersImage {
           width: 40px;
           height: 40px;
           margin-right: 10px;
@@ -272,7 +272,7 @@
           object-fit: cover;
         }
 
-        div {
+        .storyUsersInfo {
           display: flex;
           flex-direction: column;
           span {
@@ -315,7 +315,7 @@
         align-items: center;
         margin: 10px 0;
 
-        div {
+        .recommendUsersInfo {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -330,7 +330,7 @@
           }
         }
 
-        img {
+        .recommendUsersImg {
           width: 35px;
           height: 35px;
           margin-right: 10px;

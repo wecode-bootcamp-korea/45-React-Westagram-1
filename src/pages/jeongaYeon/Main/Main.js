@@ -42,14 +42,17 @@ const MainJeonga = () => {
           </div>
           <div className="navInfo">
             <img
+              className="navInfoImg"
               alt="탐색 이미지"
               src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
             />
             <img
+              className="navInfoImg"
               alt="좋아요 이미지"
               src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
             />
             <img
+              className="navInfoImg"
               alt="사람 이미지"
               src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
             />
@@ -57,7 +60,7 @@ const MainJeonga = () => {
         </nav>
         <main className="mainWrapper">
           <section className="feeds">
-            <article>
+            <article className="feedsWrapper">
               <div className="feedsHeader">
                 <div className="feedsHeaderProfile">
                   <img
@@ -65,7 +68,7 @@ const MainJeonga = () => {
                     className="profileImage"
                     src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
                   />
-                  <span>candy_lp</span>
+                  <span className="profileId">candy_lp</span>
                 </div>
                 <i className="fas fa-ellipsis-h" />
               </div>
@@ -89,12 +92,13 @@ const MainJeonga = () => {
               </div>
               <div className="feedHeart">
                 <img
+                  className="feedHeartImg"
                   alt="프로필 이미지"
                   width="20"
                   height="20"
                   src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                 />
-                <div>
+                <div className="feedHeartUsers">
                   <span>youworld</span>님 <span>외 10명</span>이 좋아합니다
                 </div>
               </div>
@@ -127,13 +131,13 @@ const MainJeonga = () => {
                 />
                 <span
                   onClick={handleCommentBtn}
-                  className={
+                  className={`writeComBtn ${
                     value
                       ? value.length > 0
                         ? 'writeCommentBtn'
                         : 'noWriteCommntBtn'
                       : 'noValue'
-                  }
+                  }`}
                 >
                   게시
                 </span>
@@ -144,6 +148,7 @@ const MainJeonga = () => {
             <div className="userProfile">
               <div className="userProfileImg">
                 <img
+                  className="userImg"
                   alt="프로필 이미지"
                   src="https://avatars.githubusercontent.com/u/52394741?s=200&v=4"
                 />
@@ -160,30 +165,33 @@ const MainJeonga = () => {
               </div>
               <div className="storyUsers">
                 <img
+                  className="storyUsersImage"
                   alt="프로필 이미지"
                   src="https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fCVFQyU4MiVBQyVFQiU5RSU4Q3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                 />
-                <div>
+                <div className="storyUsersInfo">
                   <span>_yum_s</span>
                   <span>16분 전 </span>
                 </div>
               </div>
               <div className="storyUsers">
                 <img
+                  className="storyUsersImage"
                   alt="프로필 이미지"
                   src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzB8fCVFQyU4MiVBQyVFQiU5RSU4Q3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                 />
-                <div>
+                <div className="storyUsersInfo">
                   <span>drink_drink</span>
                   <span>3시간 전 </span>
                 </div>
               </div>
               <div className="storyUsers">
                 <img
+                  className="storyUsersImage"
                   alt="프로필 이미지"
                   src="https://images.unsplash.com/photo-1510337550647-e84f83e341ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80"
                 />
-                <div>
+                <div className="storyUsersInfo">
                   <span>quckyc</span>
                   <span>20시간 전 </span>
                 </div>
@@ -196,10 +204,11 @@ const MainJeonga = () => {
               </div>
               <div className="recommendationUsers">
                 <img
+                  className="recommendUsersImg"
                   alt="프로필 이미지"
                   src="https://images.unsplash.com/photo-1680009178685-34784413ffe1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM0fHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                 />
-                <div>
+                <div className="recommendUsersInfo">
                   <span>joaaaahye</span>
                   <span>_legnd님 외 2명이 ...</span>
                 </div>
@@ -207,10 +216,11 @@ const MainJeonga = () => {
               </div>
               <div className="recommendationUsers">
                 <img
+                  className="recommendUsersImg"
                   alt="프로필 이미지"
                   src="https://plus.unsplash.com/premium_photo-1679822641085-b40f412dcd7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMyfHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                 />
-                <div>
+                <div className="recommendUsersInfo">
                   <span>rampart80</span>
                   <span>ring.in.seoul님 외 12...</span>
                 </div>
@@ -218,10 +228,11 @@ const MainJeonga = () => {
               </div>
               <div className="recommendationUsers">
                 <img
+                  className="recommendUsersImg"
                   alt="프로필 이미지"
                   src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1143&q=80"
                 />
-                <div>
+                <div className="recommendUsersInfo">
                   <span>shawnjjoo</span>
                   <span>jimmy1004님 외 1...</span>
                 </div>

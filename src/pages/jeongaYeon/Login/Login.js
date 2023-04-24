@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './Login.scss';
 import { useNavigate } from 'react-router-dom';
+import './Login.scss';
 
 const LoginJeonga = () => {
   const [id, setId] = useState('');
@@ -13,14 +13,12 @@ const LoginJeonga = () => {
   };
 
   const saveUserId = event => {
-    let userId = event.target.value;
-    setId(userId);
+    setId(event.target.value);
     checkValid();
   };
 
   const saveUserPassword = event => {
-    let userPassword = event.target.value;
-    setPassword(userPassword);
+    setPassword(event.target.value);
     checkValid();
   };
 
@@ -37,10 +35,10 @@ const LoginJeonga = () => {
   }, [id, password]);
 
   return (
-    <main className="container">
+    <main className="login">
       <div className="wrapper">
         <div className="loginWrapper">
-          <div className="login">
+          <div className="loginContainer">
             <h1 className="loginTitle">Westagram</h1>
             <div className="loginIdWrapper">
               <input
@@ -61,7 +59,7 @@ const LoginJeonga = () => {
             <button
               className={valid ? 'loginButton loginButtonBlue' : 'loginButton'}
               onClick={handleLogin}
-              disabled={valid ? false : true}
+              disabled={!valid}
             >
               로그인
             </button>
