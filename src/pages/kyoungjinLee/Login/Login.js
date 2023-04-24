@@ -40,7 +40,7 @@ const LoginKyoungjin = () => {
   };
 
   return (
-    <div class="loginBox">
+    <div class="loginKyoungJin">
       <div class="container">
         <div class="westagram">Westagram</div>
         <div class="inputs">
