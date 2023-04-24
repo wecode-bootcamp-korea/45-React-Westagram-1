@@ -10,16 +10,13 @@ const MainSujeong = () => {
 
   const onChangeHandler = e => {
     setComment(e.target.value);
-    console.log('onChangeHandler', comment);
   };
 
   const onClickHandler = () => {
     setAddComments([...addComments, { id, userId: USER_ID, comment }]);
     setId(id => ++id);
-    console.log('onClickHandler', addComments);
   };
   const resetValue = () => {
-    console.log('resetValue', comment);
     setComment('');
   };
   return (

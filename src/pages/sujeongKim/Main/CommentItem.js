@@ -1,12 +1,11 @@
 import React from 'react';
 
-const CommentItem = props => {
-  console.log(props);
+const CommentItem = ({ id, userId, comment }) => {
   return (
-    <li className="commentList" key={props.id}>
+    <li className="commentList" key={id}>
       <div>
-        <span className="userIdInComment">{props.userId}</span>
-        <span>{props.comment}</span>
+        <span className="userIdInComment">{userId}</span>
+        <span>{comment}</span>
       </div>
       <p className="postingTime">35분 전</p>
     </li>
