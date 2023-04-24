@@ -194,6 +194,24 @@ main {
         position: relative;
         margin-top: 5px;
 
+        .commentList {
+          list-style: none;
+
+          li {
+            padding-top: 10px;
+          }
+
+          img {
+            position: absolute;
+            right: 10px;
+
+            width: 15px;
+            height: 15px;
+            border: none;
+            background-color: rgb(255, 255, 255);
+          }
+        }
+
         .commentHeart {
           position: absolute;
           right: 10px;
@@ -218,7 +236,7 @@ main {
     }
 
     /*댓글 창*/
-    div.commentary {
+    div.getComment {
       display: flex;
       position: absolute;
       bottom: 0;
@@ -243,6 +261,10 @@ main {
         border: none;
         background-color: rgb(255, 255, 255);
         color: rgb(117, 209, 245);
+
+        &:hover {
+          color: blue;
+        }
       }
     }
   }

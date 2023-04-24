@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Main.scss';
 import '../../../styles/common.scss';
 
@@ -23,103 +24,98 @@ function Nav() {
 }
 
 //위스타 왼쪽
-//왼쪽 피드 내 프로필
-function MyProfile() {
-  return (
-    <div class="meProfile">
-      <img
-        class="profileImage"
-        alt="내 프로필 이미지"
-        src="/images/kyoungjinLee/나.jpg"
-      />
-      <div class="meId">
-        <span class="meName">al_zar_takkarsen</span>
-        <span class="meDesc">🫠</span>
-      </div>
-      <div class="dots" />
-    </div>
-  );
-}
 
-//피드 이미지
-function FeedImage() {
-  return <img alt="인서타 피드 이미지" src="/images/kyoungjinLee/싸콘.jpg" />;
-}
-
-//피드 밑 아이콘들
-function BottomIcon() {
+//왼쪽 피드 프로필 ~
+function Feed() {
   return (
-    <div class="bottomIcon">
-      <button class="iconButton">
+    <>
+      {/*왼쪽 프로필*/}
+      <div class="meProfile">
         <img
-          alt="하트 아이콘"
-          class="icons like"
-          src="/images/kyoungjinLee/heart.png"
+          class="profileImage"
+          alt="내 프로필 이미지"
+          src="/images/kyoungjinLee/나.jpg"
         />
-      </button>
-      <img
-        alt="댓글 아이콘"
-        class="icons comment"
-        src="/images/kyoungjinLee/comments-2.png"
-      />
-      <img
-        class="icons upload"
-        alt="업로드 아이콘"
-        src="/images/kyoungjinLee/upload.png"
-      />
-      <img
-        alt="스크랩 아이콘"
-        class="icons scrap"
-        src="/images/kyoungjinLee/스크랩.png"
-      />
-    </div>
-  );
-}
-
-//~가 좋아합니다
-function WhoLike() {
-  return (
-    <div class="likey">
-      <img
-        class="likeyimage"
-        alt="내 프로필 이미지"
-        src="/images/kyoungjinLee/나.jpg"
-      />
-      <span class="likeComment">
-        <span class="bold">al_zar_takkarsen</span>님
-        <span class="bold">외 10명</span>이 좋아합니다
-      </span>
-    </div>
-  );
-}
-
-//댓글 들어갈 공간
-function FeedComment() {
-  return (
-    <div class="feedComment">
-      <span class="bold">al_zar_takkarsen</span> 우 나 핫걸 좋은 거 보고 갈래?
-      💦
-      <div class="comment1">
-        <span class="bold">_sentiers</span> 라인이 예술이네요
-        <button id="댓글좋아요" class="commentHeart">
+        <div class="meId">
+          <span class="meName">al_zar_takkarsen</span>
+          <span class="meDesc">🫠</span>
+        </div>
+        <div class="dots" />
+      </div>
+      {/*피드 콘텐츠*/}
+      <img alt="인서타 피드 이미지" src="/images/kyoungjinLee/싸콘.jpg" />
+      {/*피드 아래 아이콘들*/}
+      <div class="bottomIcon">
+        <button class="iconButton">
           <img
-            alt="좋아요 하트"
-            class="smallHeart"
+            alt="하트 아이콘"
+            class="icons like"
             src="/images/kyoungjinLee/heart.png"
           />
         </button>
+        <img
+          alt="댓글 아이콘"
+          class="icons comment"
+          src="/images/kyoungjinLee/comments-2.png"
+        />
+        <img
+          class="icons upload"
+          alt="업로드 아이콘"
+          src="/images/kyoungjinLee/upload.png"
+        />
+        <img
+          alt="스크랩 아이콘"
+          class="icons scrap"
+          src="/images/kyoungjinLee/스크랩.png"
+        />
       </div>
-      <div class="time">55분전</div>
-    </div>
+      {/*~가 좋아합니다*/}
+      <div class="likey">
+        <img
+          class="likeyimage"
+          alt="내 프로필 이미지"
+          src="/images/kyoungjinLee/나.jpg"
+        />
+        <span class="likeComment">
+          <span class="bold">al_zar_takkarsen</span>님
+          <span class="bold">외 10명</span>이 좋아합니다
+        </span>
+      </div>
+      {/*댓글 들어갈 공간*/}
+      <div class="feedComment">
+        <span class="bold">al_zar_takkarsen</span> 우 나 핫걸 좋은 거 보고 갈래?
+        💦
+        <div class="comment1">
+          <span class="bold">_sentiers</span> 라인이 예술이네요
+          <button id="댓글좋아요" class="commentHeart">
+            <img
+              alt="좋아요 하트"
+              class="smallHeart"
+              src="/images/kyoungjinLee/heart.png"
+            />
+          </button>
+          <div>{}</div>
+        </div>
+        <div class="time">55분전</div>
+      </div>
+    </>
   );
 }
 
 //댓글 쓰는 공간
-function CommentBox() {
+function CommentBox({ comment, getComment, addComment }) {
   return (
-    <div class="commentary">
-      <input id="댓글창" type="text" placeholder="댓글 달기..." />
-      <button id="게시">게시</button>
+    <div class="getComment">
+      <input
+        id="댓글창"
+        type="text"
+        placeholder="댓글 달기..."
+        value={comment}
+        onChange={getComment}
+      />
+      <button id="게시" onClick={addComment}>
+        게시
+      </button>
     </div>
   );
 }
@@ -239,6 +235,19 @@ function Footer() {
 }
 
 const MainKyoungjin = () => {
+  const [comment, setComment] = useState('');
+  const [commentList, setCommentList] = useState([]);
+  const userId = 'wakgood';
+
+  const getComment = event => {
+    setComment(event.target.value);
+  };
+
+  const addComment = () => {
+    setCommentList([...commentList, comment]);
+    setComment('');
+  };
+
   return (
     <>
       <Nav />
@@ -246,12 +255,103 @@ const MainKyoungjin = () => {
         <div class="feeds">
           <article>
             <div class="meFid">
-              <MyProfile />
-              <FeedImage />
-              <BottomIcon />
-              <WhoLike />
-              <FeedComment />
-              <CommentBox />
+              <div class="meProfile">
+                <img
+                  class="profileImage"
+                  alt="내 프로필 이미지"
+                  src="/images/kyoungjinLee/나.jpg"
+                />
+                <div class="meId">
+                  <span class="meName">al_zar_takkarsen</span>
+                  <span class="meDesc">🫠</span>
+                </div>
+                <div class="dots" />
+              </div>
+              {/*피드 콘텐츠*/}
+              <img
+                alt="인서타 피드 이미지"
+                src="/images/kyoungjinLee/싸콘.jpg"
+              />
+              {/*피드 아래 아이콘들*/}
+              <div class="bottomIcon">
+                <button class="iconButton">
+                  <img
+                    alt="하트 아이콘"
+                    class="icons like"
+                    src="/images/kyoungjinLee/heart.png"
+                  />
+                </button>
+                <img
+                  alt="댓글 아이콘"
+                  class="icons comment"
+                  src="/images/kyoungjinLee/comments-2.png"
+                />
+                <img
+                  class="icons upload"
+                  alt="업로드 아이콘"
+                  src="/images/kyoungjinLee/upload.png"
+                />
+                <img
+                  alt="스크랩 아이콘"
+                  class="icons scrap"
+                  src="/images/kyoungjinLee/스크랩.png"
+                />
+              </div>
+              {/*~가 좋아합니다*/}
+              <div class="likey">
+                <img
+                  class="likeyimage"
+                  alt="내 프로필 이미지"
+                  src="/images/kyoungjinLee/나.jpg"
+                />
+                <span class="likeComment">
+                  <span class="bold">al_zar_takkarsen</span>님
+                  <span class="bold">외 10명</span>이 좋아합니다
+                </span>
+              </div>
+              {/*댓글 들어갈 공간*/}
+              <div class="feedComment">
+                <span class="bold">al_zar_takkarsen</span> 우 나 핫걸 좋은 거
+                보고 갈래? 💦
+                <div class="comment1">
+                  <span class="bold">_sentiers</span> 라인이 예술이네요
+                  <button id="댓글좋아요" class="commentHeart">
+                    <img
+                      alt="좋아요 하트"
+                      class="smallHeart"
+                      src="/images/kyoungjinLee/heart.png"
+                    />
+                  </button>
+                  <div className="commentList">
+                    {commentList.map(commentItem => {
+                      return (
+                        <li>
+                          <span className="bold">{userId}</span>
+                          {commentItem}
+                          <img
+                            alt="좋아요 하트"
+                            class="smallHeart"
+                            src="/images/kyoungjinLee/heart.png"
+                          />
+                        </li>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div class="time">55분전</div>
+              </div>
+              <div class="getComment">
+                <input
+                  id="댓글창"
+                  type="text"
+                  placeholder="댓글 달기..."
+                  value={comment}
+                  onChange={getComment}
+                />
+                <button id="게시" onClick={addComment}>
+                  게시
+                </button>
+              </div>
             </div>
           </article>
         </div>
