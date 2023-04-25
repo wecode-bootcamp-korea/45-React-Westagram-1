@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FOOTER_LIST } from './footerList';
 import './Main.scss';
 import './Comment.scss';
 import Comment from './Comment';
@@ -240,10 +241,16 @@ const MainJeonga = () => {
               </div>
             </div>
             <div className="footer">
-              <p>
-                Westagram 정보 · 지원 · 홍보센터 · API · 채용 정보 ·
-                개인정보처리방침 · 약관 · 디렉터리 · 프로필 · 해시태그 · 언어
-              </p>
+              <ul>
+                {FOOTER_LIST.map(item => (
+                  <li key={item.id}>
+                    {item.title}
+                    {FOOTER_LIST.indexOf(item) !== FOOTER_LIST.length - 1
+                      ? ' ·'
+                      : ''}
+                  </li>
+                ))}
+              </ul>
               <span>© 2023 WESTAGRAM</span>
             </div>
           </aside>

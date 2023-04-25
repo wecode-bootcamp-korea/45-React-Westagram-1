@@ -351,9 +351,14 @@
       color: gray;
     }
 
-    .footer p {
+    .footer ul {
+      display: flex;
+      flex-wrap: wrap;
       margin-bottom: 25px;
       line-height: 20px;
+      li {
+        margin-right: 6px;
+      }
     }
   }
 }
