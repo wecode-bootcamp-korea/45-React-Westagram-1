@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './footer.scss';
 const Footer = () => {
   return (
     <footer className="mainFooter">
       <ul className="footerTop">
-        <li>{}</li>
+        {FOOTER_LIST.map(item => {
+          return (
+            <li key={item.id}>
+              <a>{item.listItem}</a>
+            </li>
+          );
+        })}
       </ul>
       <p>© 2023 INSTAGRAM FROM META</p>
     </footer>
@@ -12,7 +18,7 @@ const Footer = () => {
 };
 export default Footer;
 
-FOOTER_LIST = [
+const FOOTER_LIST = [
   { id: 0, listItem: '소개' },
   { id: 1, listItem: '도움말' },
   { id: 2, listItem: '홍보 센터' },
