@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Main.scss';
 import '../../../styles/common.scss';
+import CommentList from './Commentlist';
 
 //위스타 배너
 function Nav() {
@@ -94,21 +95,7 @@ function Feed({ commentList, userId }) {
               src="/images/kyoungjinLee/heart.png"
             />
           </button>
-          <div className="commentList">
-            {commentList.map(commentItem => {
-              return (
-                <li>
-                  <span className="bold">{userId}</span>
-                  {commentItem}
-                  <img
-                    alt="좋아요 하트"
-                    class="smallHeart"
-                    src="/images/kyoungjinLee/heart.png"
-                  />
-                </li>
-              );
-            })}
-          </div>
+          <CommentList commentList={commentList} userId={userId} />
         </div>
         <div class="time">55분전</div>
       </div>
