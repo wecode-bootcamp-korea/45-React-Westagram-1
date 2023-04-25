@@ -8,6 +8,7 @@ import MainSujeong from './pages/sujeongKim/Main/Main';
 import LoginSujeong from './pages/sujeongKim/Login/Login';
 import MainWonjun from './pages/wonjunLee/Main/Main';
 import LoginWonjun from './pages/wonjunLee/Login/Login';
+import Footer from './pages/sujeongKim/Footer';
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path="/login-wonjun" element={<LoginWonjun />} />
         <Route path="/main-wonjun" element={<MainWonjun />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

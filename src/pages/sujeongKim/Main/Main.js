@@ -194,20 +194,6 @@ const MainSujeong = () => {
               </li>
             </ul>
           </div>
-          <footer className="mainFooter">
-            <ul className="footerTop">
-              <li>소개</li>
-              <li>도움말</li>
-              <li>홍보 센터</li>
-              <li>API</li>
-              <li>채용 정보</li>
-              <li>개인정보처리방침약관</li>
-              <li>위치</li>
-              <li>언어</li>
-              <li>Meta Verified</li>
-            </ul>
-            <p>© 2023 INSTAGRAM FROM META</p>
-          </footer>
         </div>
       </main>
     </React.Fragment>
