@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Footer } from './footer';
+import CommentList from './Commentlist';
 import './Main.scss';
 import '../../../styles/common.scss';
-import CommentList from './Commentlist';
 
 //위스타 배너
 function Nav() {
@@ -211,18 +212,11 @@ function MainRight({ footer }) {
         </div>
       </div>
       <div className="footer">
-        {footer.map(foot => {
+        {Footer.map(foot => {
           return <p key={foot.id}>{foot.footerInfo}</p>;
         })}
         <p>&copy; 2023 INSTAGRAM</p>
       </div>
-
-      {/* <div class="footer">
-        <p>Instagram 정보 . 지원 . 홍보 센터 . API . </p>
-        <p>채용 정보 . 개인정보처리방침 . 약관 . </p>
-        <p> 디렉터리 . 프로필 . 해시태그 . 언어</p>
-        <p>&copy; 2023 INSTAGRAM</p>
-      </div> */}
     </>
   );
 }
@@ -231,19 +225,6 @@ const MainKyoungjin = () => {
   const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]);
   const userId = 'wak_good';
-  const footer = [
-    { id: 1, footerInfo: 'Instagram 정보 . ' },
-    { id: 2, footerInfo: '지원 . ' },
-    { id: 3, footerInfo: '홍보 센터 . ' },
-    { id: 4, footerInfo: 'API . ' },
-    { id: 5, footerInfo: '채용 정보 . ' },
-    { id: 6, footerInfo: '개인정보처리방침 . ' },
-    { id: 7, footerInfo: '약관 . ' },
-    { id: 8, footerInfo: '디렉터리 . ' },
-    { id: 9, footerInfo: '프로필 . ' },
-    { id: 10, footerInfo: '해시태그 . ' },
-    { id: 11, footerInfo: '언어' },
-  ];
 
   const getComment = event => {
     setComment(event.target.value);
@@ -273,7 +254,7 @@ const MainKyoungjin = () => {
         </div>
         {/*오른쪽*/}
         <div class="mainRight">
-          <MainRight footer={footer} />
+          <MainRight />
         </div>
       </main>
     </>
