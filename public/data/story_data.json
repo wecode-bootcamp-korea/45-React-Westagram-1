@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "user_id": "krystal170",
+    "user_profile_img": "/images/sujeongKim/forest.jpg",
+    "updated_time": 10
+  },
+  {
+    "id": 1,
+    "user_id": "icecream486",
+    "user_profile_img": "/images/sujeongKim/jellyfish_blue.jpg",
+    "updated_time": 7
+  },
+  {
+    "id": 3,
+    "user_id": "chococho543",
+    "user_profile_img": "/images/sujeongKim/star.jpg",
+    "updated_time": 13
+  },
+  {
+    "id": 4,
+    "user_id": "pizzzzza987",
+    "user_profile_img": "/images/sujeongKim/yellow.jpg",
+    "updated_time": 4
+  }
+]

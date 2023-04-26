@@ -5,8 +5,7 @@
     "user_id": "krystal170",
     "post_img": "/images/sujeongKim/forest.jpg",
     "liked_user_id": "maratang77",
-    "count_liked_people": 10,
-    "reply": []
+    "count_liked_people": 10
   },
   {
     "id": 1,
@@ -14,8 +13,7 @@
     "user_id": "icecream486",
     "post_img": "/images/sujeongKim/jellyfish_blue.jpg",
     "liked_user_id": "dduckbboki2",
-    "count_liked_people": 7,
-    "reply": []
+    "count_liked_people": 7
   },
   {
     "id": 3,
@@ -23,8 +21,7 @@
     "user_id": "chococho543",
     "post_img": "/images/sujeongKim/star.jpg",
     "liked_user_id": "dimsum1234",
-    "count_liked_people": 13,
-    "reply": []
+    "count_liked_people": 13
   },
   {
     "id": 4,
@@ -32,7 +29,6 @@
     "user_id": "pizzzzza987",
     "post_img": "/images/sujeongKim/yellow.jpg",
     "liked_user_id": "cooooooke777",
-    "count_liked_people": 4,
-    "reply": []
+    "count_liked_people": 4
   }
 ]

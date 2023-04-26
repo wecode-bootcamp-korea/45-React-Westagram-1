@@ -3,6 +3,14 @@ import CommentItem from './CommentItem';
 import './feed.scss';
 
 const FeedItem = props => {
+  const {
+    id,
+    profile_img,
+    user_id,
+    post_img,
+    liked_user_id,
+    count_liked_people,
+  } = props.item;
   const [comment, setComment] = useState('');
   const [addComments, setAddComments] = useState([]);
 
@@ -20,16 +28,16 @@ const FeedItem = props => {
 
   return (
     <>
-      <article key={props.id}>
+      <article key={id}>
         <header>
           <div>
-            <img src={props.profile_img} alt="프로필 사진" />
-            <p>{props.user_id}</p>
+            <img src={profile_img} alt="프로필 사진" />
+            <p>{user_id}</p>
           </div>
           <span className="material-symbols-outlined hiddenBtn">moreVert</span>
         </header>
         <section className="postImgArea">
-          <img src={props.post_img} className="postImg" alt="게시물 이미지" />
+          <img src={post_img} className="postImg" alt="게시물 이미지" />
         </section>
         <div className="postBottom">
           <div className="postReaction">
@@ -49,13 +57,13 @@ const FeedItem = props => {
           <div className="postLike">
             <img src="/images/sujeongKim/profile_img.jpg" alt="프로필 이미지" />
             <p>
-              <span>{props.liked_user_id}</span>님
-              <span>외 {props.count_liked_people}명</span>이 좋아합니다
+              <span>{liked_user_id}</span>님
+              <span>외 {count_liked_people}명</span>이 좋아합니다
             </p>
           </div>
           <ul>
             <li className="commentList">
-              <span className="userIdInComment">{props.liked_user_id}</span>
+              <span className="userIdInComment">{liked_user_id}</span>
               <span className="comment">하겐다즈 먹고싶당</span>
               <p className="postingTime">35분 전</p>
             </li>

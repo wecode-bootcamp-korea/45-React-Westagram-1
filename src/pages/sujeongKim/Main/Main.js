@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import './Main.scss';
 import FeedItem from './FeedItem';
+import StoryItem from './StoryItem';
+import Recommend from './Recommend';
 
 const MainSujeong = () => {
   const [feedItem, setFeedItem] = useState([]);
+  const [storyItem, setStoryItem] = useState([]);
+  const [recommendItem, setRecommendItem] = useState([]);
 
   useEffect(() => {
     fetch('/data/feed_data.json')
       .then(res => res.json())
       .then(data => {
         setFeedItem(data);
+      });
+    fetch('/data/story_data.json')
+      .then(res => res.json())
+      .then(data => {
+        setStoryItem(data);
+      });
+    fetch('/data/recommend_data.json')
+      .then(res => res.json())
+      .then(data => {
+        setRecommendItem(data);
       });
   }, []);
 
@@ -38,17 +52,7 @@ const MainSujeong = () => {
       <main className="mainMain">
         <div className="feeds">
           {feedItem.map(item => {
-            return (
-              <FeedItem
-                key={item.id}
-                profile_img={item.profile_img}
-                user_id={item.user_id}
-                post_img={item.post_img}
-                liked_user_id={item.liked_user_id}
-                count_liked_people={item.count_liked_people}
-                reply={item.reply}
-              />
-            );
+            return <FeedItem item={item} />;
           })}
         </div>
         <div className="mainRight">
@@ -65,30 +69,9 @@ const MainSujeong = () => {
               <span>모두 보기</span>
             </div>
             <ul className="storyList">
-              <li>
-                <div className="storyProfileImgBorder">
-                  <img
-                    src="/images/sujeongKim/profile_img.jpg"
-                    alt="프로필 사진"
-                  />
-                </div>
-                <div className="storyUserInfo">
-                  <p>icecream486</p>
-                  <p>25분 전</p>
-                </div>
-              </li>
-              <li>
-                <div className="storyProfileImgBorder">
-                  <img
-                    src="/images/sujeongKim/profile_img.jpg"
-                    alt="프로필 사진"
-                  />
-                </div>
-                <div className="storyUserInfo">
-                  <p>chocochoco123</p>
-                  <p>45분 전</p>
-                </div>
-              </li>
+              {storyItem.map(item => {
+                return <StoryItem item={item} />;
+              })}
             </ul>
           </div>
           <div className="recommendListArea">
@@ -97,19 +80,9 @@ const MainSujeong = () => {
               <span>모두 보기</span>
             </div>
             <ul className="recommendList">
-              <li>
-                <div className="recommendInfoArea">
-                  <img
-                    src="/images/sujeongKim/profile_img.jpg"
-                    alt="프로필 사진"
-                  />
-                  <div className="recommendUserInfo">
-                    <p>sushi987</p>
-                    <p>icecream123님 외 10명이 팔로우하고 있습니다</p>
-                  </div>
-                </div>
-                <p>팔로우</p>
-              </li>
+              {recommendItem.map(item => {
+                return <Recommend item={item} />;
+              })}
             </ul>
           </div>
         </div>
