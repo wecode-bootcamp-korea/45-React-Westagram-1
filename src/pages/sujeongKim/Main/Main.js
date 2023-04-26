@@ -1,24 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Main.scss';
-import CommentItem from './CommentItem';
+import FeedItem from './FeedItem';
 
 const MainSujeong = () => {
-  const [id, setId] = useState(1);
-  const [comment, setComment] = useState('');
-  const USER_ID = 'krystal170';
-  const [addComments, setAddComments] = useState([]);
+  const [feedItem, setFeedItem] = useState([]);
 
-  const onChangeHandler = e => {
-    setComment(e.target.value);
-  };
+  useEffect(() => {
+    fetch('/data/feed_data.json')
+      .then(res => res.json())
+      .then(data => {
+        setFeedItem(data);
+      });
+  }, []);
 
-  const onClickHandler = () => {
-    setAddComments([...addComments, { id, userId: USER_ID, comment }]);
-    setId(id => ++id);
-  };
-  const resetValue = () => {
-    setComment('');
-  };
   return (
     <React.Fragment>
       <nav className="nav">
@@ -43,95 +37,19 @@ const MainSujeong = () => {
       </nav>
       <main className="mainMain">
         <div className="feeds">
-          <article>
-            <header>
-              <div>
-                <img
-                  src="/images/sujeongKim/profile_img.jpg"
-                  alt="프로필 사진"
-                />
-                <p>{USER_ID}</p>
-              </div>
-              <span className="material-symbols-outlined hiddenBtn">
-                moreVert
-              </span>
-            </header>
-            <section className="postImgArea">
-              <img
-                src="/images/sujeongKim/profile_img.jpg"
-                className="postImg"
-                alt="게시물 이미지"
+          {feedItem.map(item => {
+            return (
+              <FeedItem
+                key={item.id}
+                profile_img={item.profile_img}
+                user_id={item.user_id}
+                post_img={item.post_img}
+                liked_user_id={item.liked_user_id}
+                count_liked_people={item.count_liked_people}
+                reply={item.reply}
               />
-            </section>
-            <div className="postBottom">
-              <div className="postReaction">
-                <div>
-                  <span className="likeBtn material-symbols-outlined">
-                    favorite
-                  </span>
-                  <span className="commentBtn material-symbols-outlined">
-                    comment
-                  </span>
-                  <span className="shareBtn material-symbols-outlined">
-                    send
-                  </span>
-                </div>
-                <span className="bookmarkBtn material-symbols-outlined">
-                  bookmark
-                </span>
-              </div>
-              <div className="postLike">
-                <img
-                  src="/images/sujeongKim/profile_img.jpg"
-                  alt="프로필 이미지"
-                />
-                <p>
-                  <span>{USER_ID}</span>님 <span>외 10명</span>이 좋아합니다
-                </p>
-              </div>
-              <ul>
-                <li className="commentList">
-                  <span className="userIdInComment">{USER_ID}</span>
-                  <span className="comment">하겐다즈 먹고싶당</span>
-                  <p className="postingTime">35분 전</p>
-                </li>
-                {addComments.map(comment => {
-                  return (
-                    <CommentItem
-                      id={comment.id}
-                      userId={comment.userId}
-                      comment={comment.comment}
-                    />
-                  );
-                })}
-              </ul>
-            </div>
-            <form
-              action="#"
-              onSubmit={e => {
-                e.preventDefault();
-              }}
-              className="commentInputArea"
-            >
-              <input
-                type="text"
-                name="comment"
-                className="commentInput"
-                placeholder="댓글 달기..."
-                onChange={e => onChangeHandler(e)}
-                value={comment}
-              />
-              <button
-                className="commentInputBtn"
-                onClick={() => {
-                  onClickHandler();
-                  resetValue();
-                }}
-              >
-                게시
-              </button>
-            </form>
-          </article>
+            );
+          })}
         </div>
         <div className="mainRight">
           <div className="userInfo">
