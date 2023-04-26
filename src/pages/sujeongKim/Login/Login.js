@@ -4,10 +4,20 @@ import './Login.scss';
 import LoginButton from './LoginButton';
 
 const LoginSujeong = () => {
-  const [userId, setUserId] = useState('');
-  const [userPw, setUserPw] = useState('');
   const navigate = useNavigate();
-  const loginValid = userId.includes('@') && userPw.length >= 5;
+  const [inputValues, setInputValues] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleInput = event => {
+    const { name, value } = event.target;
+    setInputValues({ ...inputValues, [name]: value });
+  };
+
+  const loginValid =
+    inputValues.email.includes('@') && inputValues.password.length >= 5;
+
   const goToMain = () => {
     navigate('/main-sujeong');
   };
@@ -18,22 +28,18 @@ const LoginSujeong = () => {
         <h1 className="logo">Westagram</h1>
         <form className="loginForm">
           <input
+            name="email"
             type="text"
             className="loginId loginInput"
-            name="userId"
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            onChange={e => {
-              setUserId(e.target.value);
-            }}
+            onChange={handleInput}
           />
           <input
+            name="password"
             type="password"
             className="loginPw loginInput"
-            name="userPw"
             placeholder="비밀번호"
-            onChange={e => {
-              setUserPw(e.target.value);
-            }}
+            onChange={handleInput}
           />
 
           <LoginButton
