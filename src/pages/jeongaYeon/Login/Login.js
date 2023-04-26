@@ -3,23 +3,22 @@ import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const LoginJeonga = () => {
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
+  const [input, setInput] = useState({
+    id: '',
+    password: '',
+  });
   const navigate = useNavigate();
 
   const handleLogin = () => {
     navigate('/main-jeonga');
   };
 
-  const saveUserId = event => {
-    setId(event.target.value);
+  const handleInput = event => {
+    const { name, value } = event.target;
+    setInput({ ...input, [name]: value });
   };
 
-  const saveUserPassword = event => {
-    setPassword(event.target.value);
-  };
-
-  const checkValid = id.indexOf('@') === -1 || password.length < 5;
+  const checkValid = input.id.indexOf('@') === -1 || input.password.length < 5;
 
   return (
     <main className="login">
@@ -29,7 +28,8 @@ const LoginJeonga = () => {
             <h1 className="loginTitle">Westagram</h1>
             <div className="loginIdWrapper">
               <input
-                onChange={saveUserId}
+                name="id"
+                onChange={handleInput}
                 placeholder="전화번호, 사용자 이름 또는 이메일"
                 type="text"
                 className="loginId"
@@ -37,7 +37,8 @@ const LoginJeonga = () => {
             </div>
             <div className="loginPasswordWrapper">
               <input
-                onChange={saveUserPassword}
+                name="password"
+                onChange={handleInput}
                 className="loginPassword"
                 placeholder="비밀번호"
                 type="password"

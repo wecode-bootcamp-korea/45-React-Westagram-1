@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Feed from './Feed';
 import { FOOTER_LIST } from './footerList';
 import './Main.scss';
 import './Comment.scss';
-import Feed from './Feed';
 
 const MainJeonga = () => {
   const [feeds, setFeeds] = useState([]);
