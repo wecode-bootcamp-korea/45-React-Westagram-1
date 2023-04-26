@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FOOTER_LIST } from './footerList';
 import './Main.scss';
 import './Comment.scss';
@@ -7,6 +7,7 @@ import Comment from './Comment';
 const MainJeonga = () => {
   const [comments, setComments] = useState([]);
   const [value, setValue] = useState('');
+  const [feeds, setFeeds] = useState([]);
 
   const handleComment = event => {
     const comment = event.target.value;
@@ -27,6 +28,12 @@ const MainJeonga = () => {
   const handleCommentInput = event => {
     setValue(event.target.value);
   };
+
+  useEffect(() => {
+    fetch('data/feed.json', { method: 'GET' })
+      .then(response => response.json())
+      .then(data => setFeeds(data.list));
+  }, []);
 
   return (
     <div className="main">
@@ -61,89 +68,83 @@ const MainJeonga = () => {
         </nav>
         <main className="mainWrapper">
           <section className="feeds">
-            <article className="feedsWrapper">
-              <div className="feedsHeader">
-                <div className="feedsHeaderProfile">
-                  <img
-                    alt="프로필 사진"
-                    className="profileImage"
-                    src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
-                  />
-                  <span className="profileId">candy_lp</span>
+            {feeds?.map(feed => (
+              <article className="feedsWrapper" key={feed.id}>
+                <div className="feedsHeader">
+                  <div className="feedsHeaderProfile">
+                    <img
+                      alt="프로필 사진"
+                      className="profileImage"
+                      src={feed.userImg}
+                    />
+                    <span className="profileId">{feed.userId}</span>
+                  </div>
+                  <i className="fas fa-ellipsis-h" />
                 </div>
-                <i className="fas fa-ellipsis-h" />
-              </div>
-              <img
-                alt="피드 이미지"
-                className="feedImage"
-                src="https://images.unsplash.com/photo-1538943186303-104afadcbb16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-              />
-              <div className="feedIcons">
-                <div className="feedIconsLeft">
-                  <i className="fas fa-heart" />
-                  <i className="far fa-comment fa-flip-horizontal" />
-                  <img
-                    alt="업로드 이미지"
-                    src="https://icon-library.com/images/upload-icon-png/upload-icon-png-16.jpg"
-                    width="25"
-                    height="25"
-                  />
-                </div>
-                <i className="far fa-bookmark" />
-              </div>
-              <div className="feedHeart">
                 <img
-                  className="feedHeartImg"
-                  alt="프로필 이미지"
-                  width="20"
-                  height="20"
-                  src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                  alt="피드 이미지"
+                  className="feedImage"
+                  src={feed.feedImg}
                 />
-                <div className="feedHeartUsers">
-                  <span>youworld</span>님 <span>외 10명</span>이 좋아합니다
+                <div className="feedIcons">
+                  <div className="feedIconsLeft">
+                    <i className="fas fa-heart" />
+                    <i className="far fa-comment fa-flip-horizontal" />
+                    <img
+                      alt="업로드 이미지"
+                      src="https://icon-library.com/images/upload-icon-png/upload-icon-png-16.jpg"
+                      width="25"
+                      height="25"
+                    />
+                  </div>
+                  <i className="far fa-bookmark" />
                 </div>
-              </div>
-              <p className="feedContent">
-                <span>candy_lp</span> 너-무 행복했던 4월 1일💕...
-                <span>더 보기</span>
-              </p>
-              <div className="feedComments">
-                <div className="feedComment">
-                  <p>
-                    <span className="commentId">qxxxqwwi</span>
-                    <span className="commentContent">👍👍</span>
-                  </p>
-                  <div className="commentIconWrapper">
-                    <i className="far fa-heart heart false" />
+                <div className="feedHeart">
+                  <img
+                    className="feedHeartImg"
+                    alt="프로필 이미지"
+                    width="20"
+                    height="20"
+                    src={feed.heartImg}
+                  />
+                  <div className="feedHeartUsers">
+                    <span>{feed.heartUser}</span>님{' '}
+                    <span>외 {feed.heartUsers}명</span>이 좋아합니다
                   </div>
                 </div>
-                {comments.map((comment, index) => (
-                  <Comment comment={comment} key={index} />
-                ))}
-              </div>
-              <p className="feedTime">42분 전</p>
-              <div className="writeComment">
-                <input
-                  onKeyUp={handleComment}
-                  className="writeCommentInput"
-                  placeholder="댓글 달기..."
-                  value={value}
-                  onChange={handleCommentInput}
-                />
-                <span
-                  onClick={handleCommentBtn}
-                  className={`writeComBtn ${
-                    value
-                      ? value.length > 0
-                        ? 'writeCommentBtn'
-                        : 'noWriteCommntBtn'
-                      : 'noValue'
-                  }`}
-                >
-                  게시
-                </span>
-              </div>
-            </article>
+                <p className="feedContent">
+                  <span>{feed.userId}</span> {feed.feedContent}...
+                  <span>더 보기</span>
+                </p>
+                <div className="feedComments">
+                  {comments.map((comment, index) => (
+                    <Comment comment={comment} key={index} />
+                  ))}
+                </div>
+                <p className="feedTime">42분 전</p>
+                <div className="writeComment">
+                  <input
+                    onKeyUp={handleComment}
+                    className="writeCommentInput"
+                    placeholder="댓글 달기..."
+                    value={value}
+                    onChange={handleCommentInput}
+                  />
+                  <span
+                    onClick={handleCommentBtn}
+                    className={`writeComBtn ${
+                      value
+                        ? value.length > 0
+                          ? 'writeCommentBtn'
+                          : 'noWriteCommntBtn'
+                        : 'noValue'
+                    }`}
+                  >
+                    게시
+                  </span>
+                </div>
+              </article>
+            ))}
           </section>
           <aside className="mainRight">
             <div className="userProfile">
