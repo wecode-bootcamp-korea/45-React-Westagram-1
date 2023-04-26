@@ -121,7 +121,8 @@ function CommentBox({ comment, getComment, addComment }) {
   );
 }
 
-function MainRight() {
+//오른쪽 피드
+function MainRight({ footer }) {
   return (
     <>
       <div class="rightMe">
@@ -209,12 +210,19 @@ function MainRight() {
           </ul>
         </div>
       </div>
-      <div class="footer">
+      <div className="footer">
+        {footer.map(foot => {
+          return <p key={foot.id}>{foot.footerInfo}</p>;
+        })}
+        <p>&copy; 2023 INSTAGRAM</p>
+      </div>
+
+      {/* <div class="footer">
         <p>Instagram 정보 . 지원 . 홍보 센터 . API . </p>
         <p>채용 정보 . 개인정보처리방침 . 약관 . </p>
         <p> 디렉터리 . 프로필 . 해시태그 . 언어</p>
         <p>&copy; 2023 INSTAGRAM</p>
-      </div>
+      </div> */}
     </>
   );
 }
@@ -222,7 +230,20 @@ function MainRight() {
 const MainKyoungjin = () => {
   const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]);
-  const userId = 'wakgood';
+  const userId = 'wak_good';
+  const footer = [
+    { id: 1, footerInfo: 'Instagram 정보 . ' },
+    { id: 2, footerInfo: '지원 . ' },
+    { id: 3, footerInfo: '홍보 센터 . ' },
+    { id: 4, footerInfo: 'API . ' },
+    { id: 5, footerInfo: '채용 정보 . ' },
+    { id: 6, footerInfo: '개인정보처리방침 . ' },
+    { id: 7, footerInfo: '약관 . ' },
+    { id: 8, footerInfo: '디렉터리 . ' },
+    { id: 9, footerInfo: '프로필 . ' },
+    { id: 10, footerInfo: '해시태그 . ' },
+    { id: 11, footerInfo: '언어' },
+  ];
 
   const getComment = event => {
     setComment(event.target.value);
@@ -252,7 +273,7 @@ const MainKyoungjin = () => {
         </div>
         {/*오른쪽*/}
         <div class="mainRight">
-          <MainRight />
+          <MainRight footer={footer} />
         </div>
       </main>
     </>

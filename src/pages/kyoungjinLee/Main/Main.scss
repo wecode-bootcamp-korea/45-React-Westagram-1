@@ -412,11 +412,14 @@ main {
     }
 
     .footer {
+      display: flex;
+      flex-wrap: wrap;
+      width: 300px;
       color: rgb(146, 141, 141);
       font-size: 15px;
 
       p {
-        padding-top: 5px;
+        margin-top: 10px;
       }
     }
   }
