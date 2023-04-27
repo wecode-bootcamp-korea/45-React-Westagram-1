@@ -1,0 +1,28 @@
+.feedComments {
+  .feedComment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .feedComment p {
+    display: flex;
+    align-items: center;
+
+    .commentId {
+      margin-right: 5px;
+    }
+
+    .commentContent {
+      font-weight: normal;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+.feedComment {
+  line-height: 20px;
+}
