@@ -57,6 +57,7 @@
 main {
   display: flex;
   justify-content: space-evenly;
+  height: 100vh;
   margin: 40px 100px 0px 100px;
 
   /*feeds 전체 테두리*/
@@ -65,8 +66,8 @@ main {
     bottom: 10px;
     width: 550px;
     height: 830px;
-    border: 1px solid rgb(192, 191, 191);
-    border-radius: 3px;
+    // border: 1px solid rgb(192, 191, 191);
+    // border-radius: 3px;
 
     /*위코드 프로필*/
 
@@ -113,6 +114,12 @@ main {
         background-image: url('../../../assets/kyoungjinLee/instagramicon.png');
         background-position: -58px -372px;
       }
+    }
+
+    .meFid {
+      margin-top: 20px;
+      border: 1px solid rgb(192, 191, 191);
+      border-radius: 3px;
     }
 
     /*피드 이미지*/
@@ -186,8 +193,7 @@ main {
 
     /*나 핫걸~*/
     div.feedComment {
-      margin-top: 10px;
-      margin-left: 15px;
+      margin: 10px 0 10px 15px;
       font-size: 15px;
 
       .comment1 {
@@ -237,11 +243,8 @@ main {
     /*댓글 창*/
     div.getComment {
       display: flex;
-      position: absolute;
-      bottom: 0;
-
       input {
-        width: 548px;
+        width: 100%;
         padding: 13px 15px;
         border: none;
         border-top: 1px solid rgb(192, 191, 191);
@@ -254,15 +257,15 @@ main {
 
       /*게시 버튼*/
       button#게시 {
-        position: absolute;
-        top: 12px;
-        right: 7px;
+        width: 50px;
         border: none;
+        border-top: 1px solid rgb(192, 191, 191);
         background-color: rgb(255, 255, 255);
         color: rgb(117, 209, 245);
 
         &:hover {
           color: blue;
+          font-weight: bold;
         }
       }
     }

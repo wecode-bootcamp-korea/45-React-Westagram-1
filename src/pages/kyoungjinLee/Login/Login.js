@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './Login.scss';
 import '../../../styles/common.scss';
@@ -17,10 +17,26 @@ const LoginKyoungjin = () => {
   const [IdData, setIdData] = useState('');
   const [PasswordData, setPasswordData] = useState('');
   const [validation, setValidation] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate('/main-kyoungjin');
+    // navigate('/main-kyoungjin');
+    fetch('http://10.58.52.140:3001/users/logIn', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: IdData,
+        password: PasswordData,
+      }),
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        localStorage.setItem('token', data.accessToken);
+      });
   };
 
   const saveUserId = event => {
@@ -32,7 +48,7 @@ const LoginKyoungjin = () => {
   };
 
   const IdValidation = () => {
-    if (IdData.indexOf('@') !== -1 && PasswordData.length >= +5) {
+    if (IdData.indexOf('@') !== -1 && PasswordData.length >= 5) {
       setValidation(true);
     } else {
       setValidation(false);
