@@ -23,7 +23,6 @@ const Router = () => {
         <Route path="/login-wonjun" element={<LoginWonjun />} />
         <Route path="/main-wonjun" element={<MainWonjun />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 };

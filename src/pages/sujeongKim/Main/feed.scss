@@ -61,28 +61,23 @@
       height: 60px;
       padding: 15px 0;
 
-      & > span {
-        margin-right: 10px;
-        cursor: pointer;
-      }
+      .reactionLeft {
+        display: flex;
+        flex-direction: row;
 
-      .likeBtn {
-        margin-right: 10px;
-        cursor: pointer;
-      }
-
-      .commentBtn {
-        margin-right: 10px;
-        cursor: pointer;
-      }
-
-      .shareBtn {
-        margin-right: 10px;
-        cursor: pointer;
+        & > img {
+          width: 25px;
+          height: 25px;
+          margin-right: 10px;
+          cursor: pointer;
+        }
       }
 
       .bookmarkBtn {
+        width: 25px;
+        height: 25px;
         font-size: 30px;
+        cursor: pointer;
       }
     }
 
@@ -106,7 +101,7 @@
     .commentList {
       display: flex;
       flex-direction: row;
-
+      margin-bottom: 10px;
       .userIdInComment {
         margin-right: 5px;
         float: left;
@@ -155,6 +150,7 @@
     }
 
     .commentInputBtn {
+      background-color: none;
       color: #0095f6;
       cursor: pointer;
     }

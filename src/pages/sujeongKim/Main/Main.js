@@ -3,6 +3,7 @@ import './Main.scss';
 import FeedItem from './FeedItem';
 import StoryItem from './StoryItem';
 import Recommend from './Recommend';
+import Footer from '../Footer';
 
 const MainSujeong = () => {
   const [feedItem, setFeedItem] = useState([]);
@@ -85,6 +86,7 @@ const MainSujeong = () => {
               })}
             </ul>
           </div>
+          <Footer />
         </div>
       </main>
     </React.Fragment>

@@ -27,84 +27,88 @@ const FeedItem = props => {
   };
 
   return (
-    <>
-      <article key={id}>
-        <header>
-          <div>
-            <img src={profile_img} alt="프로필 사진" />
-            <p>{user_id}</p>
-          </div>
-          <span className="material-symbols-outlined hiddenBtn">moreVert</span>
-        </header>
-        <section className="postImgArea">
-          <img src={post_img} className="postImg" alt="게시물 이미지" />
-        </section>
-        <div className="postBottom">
-          <div className="postReaction">
-            <div>
-              <span className="likeBtn material-symbols-outlined">
-                favorite
-              </span>
-              <span className="commentBtn material-symbols-outlined">
-                comment
-              </span>
-              <span className="shareBtn material-symbols-outlined">send</span>
-            </div>
-            <span className="bookmarkBtn material-symbols-outlined">
-              bookmark
-            </span>
-          </div>
-          <div className="postLike">
-            <img src="/images/sujeongKim/profile_img.jpg" alt="프로필 이미지" />
-            <p>
-              <span>{liked_user_id}</span>님
-              <span>외 {count_liked_people}명</span>이 좋아합니다
-            </p>
-          </div>
-          <ul>
-            <li className="commentList">
-              <span className="userIdInComment">{liked_user_id}</span>
-              <span className="comment">하겐다즈 먹고싶당</span>
-              <p className="postingTime">35분 전</p>
-            </li>
-            {addComments.map(comment => {
-              return (
-                <CommentItem
-                  id={comment.id}
-                  userId={comment.userId}
-                  comment={comment.comment}
-                />
-              );
-            })}
-          </ul>
+    <article key={id}>
+      <header>
+        <div>
+          <img src={profile_img} alt="프로필 사진" />
+          <p>{user_id}</p>
         </div>
-        <form
-          action="#"
-          onSubmit={e => {
-            e.preventDefault();
-          }}
-          className="commentInputArea"
-        >
-          <input
-            type="text"
-            name="comment"
-            className="commentInput"
-            placeholder="댓글 달기..."
-            onChange={e => onChangeHandler(e)}
-            value={comment}
+        <span className="material-symbols-outlined hiddenBtn">More_vert</span>
+      </header>
+      <section className="postImgArea">
+        <img src={post_img} className="postImg" alt="게시물 이미지" />
+      </section>
+      <div className="postBottom">
+        <div className="postReaction">
+          <div className="reactionLeft">
+            <img
+              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
+              className="favorite"
+            />
+            <img
+              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/comment.png"
+              className="commentBtn"
+            />
+            <img
+              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/share.png"
+              className="shareBtn"
+            />
+          </div>
+          <img
+            src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/bookmark.png"
+            className=" bookmarkBtn"
           />
-          <button
-            className="commentInputBtn"
-            onClick={() => {
-              onClickHandler();
-              resetValue();
-            }}
-          >
-            게시
-          </button>
-        </form>
-      </article>
-    </>
+        </div>
+        <div className="postLike">
+          <img src="/images/sujeongKim/profile_img.jpg" alt="프로필 이미지" />
+          <p>
+            <span>{liked_user_id}</span>님<span>외 {count_liked_people}명</span>
+            이 좋아합니다
+          </p>
+        </div>
+        <ul>
+          <li className="commentList">
+            <span className="userIdInComment">{liked_user_id}</span>
+            <span className="comment">하겐다즈 먹고싶당</span>
+            <p className="postingTime">35분 전</p>
+          </li>
+          {addComments.map(comment => {
+            return (
+              <CommentItem
+                id={comment.id}
+                userId={comment.userId}
+                comment={comment.comment}
+              />
+            );
+          })}
+        </ul>
+      </div>
+      <form
+        action="#"
+        onSubmit={e => {
+          e.preventDefault();
+        }}
+        className="commentInputArea"
+      >
+        <input
+          type="text"
+          name="comment"
+          className="commentInput"
+          placeholder="댓글 달기..."
+          onChange={e => onChangeHandler(e)}
+          value={comment}
+        />
+        <button
+          className="commentInputBtn"
+          onClick={() => {
+            onClickHandler();
+            resetValue();
+          }}
+        >
+          게시
+        </button>
+      </form>
+    </article>
   );
 };
 export default FeedItem;
