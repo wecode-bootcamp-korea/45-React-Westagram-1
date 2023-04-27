@@ -16,7 +16,7 @@ const Feed = ({ feed }) => {
   };
 
   const handleCommentBtn = () => {
-    if (value <= 0) return;
+    if (value.length <= 0) return;
     setComments(current => [...current, value]);
     setValue('');
   };
@@ -26,7 +26,7 @@ const Feed = ({ feed }) => {
   };
 
   return (
-    <article className="feedsWrapper">
+    <article className="feed">
       <div className="feedsHeader">
         <div className="feedsHeaderProfile">
           <img alt="프로필 사진" className="profileImage" src={feed.userImg} />
