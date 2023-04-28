@@ -3,8 +3,8 @@ import Footer from './footer';
 import './Login.scss';
 
 const LoginKyoungjin = () => {
-  const [IdData, setIdData] = useState('');
-  const [PasswordData, setPasswordData] = useState('');
+  const [idData, setIdData] = useState('');
+  const [passwordData, setPasswordData] = useState('');
   const [validation, setValidation] = useState(false);
   // const navigate = useNavigate();
 
@@ -16,8 +16,8 @@ const LoginKyoungjin = () => {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        email: IdData,
-        password: PasswordData,
+        email: idData,
+        password: passwordData,
       }),
     })
       .then(response => {
@@ -37,7 +37,7 @@ const LoginKyoungjin = () => {
   };
 
   const IdValidation = () => {
-    if (IdData.indexOf('@') !== -1 && PasswordData.length >= 5) {
+    if (idData.indexOf('@') !== -1 && passwordData.length >= 5) {
       setValidation(true);
     } else {
       setValidation(false);
