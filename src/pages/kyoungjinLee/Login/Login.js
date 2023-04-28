@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Footer from './footer';
 import './Login.scss';
-import '../../../styles/common.scss';
 
 const LoginKyoungjin = () => {
   const [IdData, setIdData] = useState('');
