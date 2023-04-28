@@ -1,17 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Footer from './footer';
 import './Login.scss';
 import '../../../styles/common.scss';
-
-function Footer() {
-  return (
-    <footer>
-      <Link to="/main-kyoungjin" class="link">
-        비밀번호를 잊으셨나요?
-      </Link>
-    </footer>
-  );
-}
 
 const LoginKyoungjin = () => {
   const [IdData, setIdData] = useState('');
