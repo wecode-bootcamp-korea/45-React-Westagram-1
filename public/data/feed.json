@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "profileImg": "/images/kyoungjinLee/나",
+    "profileName": "al_zar_takkarsen",
+    "profileIntroduce": "🫠",
+    "feedImg": "/images/kyoungjinLee/싸콘",
+    "likeNum": "10명",
+    "feedContent": "우 나 핫걸 좋은 거 보고 갈래?💦",
+    "commentId": "_sentiers",
+    "fixedComment": "라인이 예술이네요"
+  },
+  {
+    "id": 2,
+    "profileImg": "/images/kyoungjinLee/나",
+    "profileName": "al_zar_takkarsen",
+    "profileIntroduce": "🫠",
+    "feedImg": "/images/kyoungjinLee/레이니",
+    "likeNum": "2500명",
+    "feedContent": "도촬 전문가 무섭내;;",
+    "commentId": "welshicorgi_messi",
+    "fixedComment": "호우 섹시하다"
+  },
+  {
+    "id": 3,
+    "profileImg": "/images/kyoungjinLee/쭈펄",
+    "profileName": "homin_joo",
+    "profileIntroduce": "우윳빛깔 쭈호민",
+    "feedImg": "/images/kyoungjinLee/호민쭈",
+    "likeNum": "25000명",
+    "feedContent": "Hard day",
+    "commentId": "hot_girl",
+    "fixedComment": "취향 진짜 까다로워 보이는 남미 부자 같아요"
+  }
+]
