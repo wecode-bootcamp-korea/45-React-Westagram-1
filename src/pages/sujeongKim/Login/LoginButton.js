@@ -1,12 +1,12 @@
 import React from 'react';
 import './LoginButton.scss';
 
-const LoginButton = ({ btnOn, BtnColor, goToMain }) => {
+const LoginButton = ({ btnOn, BtnColor, loginOn }) => {
   return (
     <button
       disabled={btnOn}
       className={`loginBtn ${BtnColor}`}
-      onClick={() => goToMain()}
+      onClick={loginOn}
     >
       로그인
     </button>

@@ -8,7 +8,7 @@ const Recommend = props => {
     count_follow_user,
   } = props.item;
   return (
-    <li key={id}>
+    <li>
       <div className="recommendInfoArea">
         <img src={user_profile_img} alt="프로필 사진" />
         <div className="recommendUserInfo">

@@ -4,11 +4,12 @@ import './Login.scss';
 import LoginButton from './LoginButton';
 
 const LoginSujeong = () => {
-  const navigate = useNavigate();
   const [inputValues, setInputValues] = useState({
     email: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   const handleInput = event => {
     const { name, value } = event.target;
@@ -20,6 +21,23 @@ const LoginSujeong = () => {
 
   const goToMain = () => {
     navigate('/main-sujeong');
+  };
+
+  const token = localStorage.getItem('TOKEN');
+  console.log(token);
+
+  const loginOn = e => {
+    e.preventDefault();
+    fetch('http://10.58.52.248:3000/users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        email: inputValues.email,
+        password: inputValues.password,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => localStorage.setItem('TOKEN', data.accessToken));
   };
 
   return (
@@ -43,9 +61,10 @@ const LoginSujeong = () => {
           />
 
           <LoginButton
-            btnOn={loginValid ? false : true}
+            btnOn={!loginValid}
             goToMain={loginValid ? goToMain : '/'}
             BtnColor={loginValid ? 'loginBtnOn' : ''}
+            loginOn={loginOn}
           />
         </form>
         <a href="/" className="findPw">

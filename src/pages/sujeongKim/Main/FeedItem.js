@@ -3,31 +3,36 @@ import CommentItem from './CommentItem';
 import './feed.scss';
 
 const FeedItem = props => {
-  const {
-    id,
-    profile_img,
-    user_id,
-    post_img,
-    liked_user_id,
-    count_liked_people,
-  } = props.item;
+  const { profile_img, user_id, post_img, liked_user_id, count_liked_people } =
+    props.item;
   const [comment, setComment] = useState('');
   const [addComments, setAddComments] = useState([]);
+  const [id, setId] = useState(0);
 
   const onChangeHandler = e => {
     setComment(e.target.value);
   };
 
-  const onClickHandler = id => {
+  const onClickHandler = () => {
     setAddComments([...addComments, { id, userId: USER_ID, comment }]);
+    setId(id + 1);
   };
 
   const resetValue = () => {
     setComment('');
   };
+  const onLike = () => {
+    console.log('like!');
+  };
+  const onRemove = deleteComment => {
+    const newCommentList = addComments.filter(
+      comment => comment.id !== deleteComment
+    );
+    setAddComments(newCommentList);
+  };
 
   return (
-    <article key={id}>
+    <article>
       <header>
         <div>
           <img src={profile_img} alt="프로필 사진" />
@@ -67,17 +72,14 @@ const FeedItem = props => {
           </p>
         </div>
         <ul>
-          <li className="commentList">
-            <span className="userIdInComment">{liked_user_id}</span>
-            <span className="comment">하겐다즈 먹고싶당</span>
-            <p className="postingTime">35분 전</p>
-          </li>
           {addComments.map(comment => {
             return (
               <CommentItem
                 id={comment.id}
                 userId={comment.userId}
                 comment={comment.comment}
+                onRemove={onRemove}
+                onLike={onLike}
               />
             );
           })}

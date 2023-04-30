@@ -101,11 +101,29 @@
     .commentList {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
       margin-bottom: 10px;
-      .userIdInComment {
-        margin-right: 5px;
-        float: left;
-        font-weight: 600;
+
+      .commentListRight {
+        display: flex;
+
+        .userIdInComment {
+          margin-right: 5px;
+          float: left;
+          font-weight: 600;
+        }
+      }
+      .commentListLeft {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .likeComment {
+        margin-top: 3px;
+        padding: 5px 10px;
+        background-image: url('https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
       }
 
       .tooLongComment {

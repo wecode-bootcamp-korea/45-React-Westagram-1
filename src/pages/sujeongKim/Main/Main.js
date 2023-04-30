@@ -16,11 +16,17 @@ const MainSujeong = () => {
       .then(data => {
         setFeedItem(data);
       });
+  }, []);
+
+  useEffect(() => {
     fetch('/data/story_data.json')
       .then(res => res.json())
       .then(data => {
         setStoryItem(data);
       });
+  }, []);
+
+  useEffect(() => {
     fetch('/data/recommend_data.json')
       .then(res => res.json())
       .then(data => {
@@ -71,7 +77,7 @@ const MainSujeong = () => {
             </div>
             <ul className="storyList">
               {storyItem.map(item => {
-                return <StoryItem item={item} />;
+                return <StoryItem key={item.id} item={item} />;
               })}
             </ul>
           </div>
@@ -82,7 +88,7 @@ const MainSujeong = () => {
             </div>
             <ul className="recommendList">
               {recommendItem.map(item => {
-                return <Recommend item={item} />;
+                return <Recommend key={item.id} item={item} />;
               })}
             </ul>
           </div>

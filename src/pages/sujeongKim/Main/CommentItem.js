@@ -1,13 +1,19 @@
 import React from 'react';
 
-const CommentItem = ({ id, userId, comment }) => {
+const CommentItem = ({ id, userId, comment, onRemove, onLike }) => {
   return (
     <li className="commentList" key={id}>
-      <div>
+      <div className="commentListRight">
         <span className="userIdInComment">{userId}</span>
         <span>{comment}</span>
+        <p className="postingTime">35분 전</p>
       </div>
-      <p className="postingTime">35분 전</p>
+      <div className="commentListLeft">
+        <button className="likeComment" onClick={() => onLike()} />
+        <button onClick={() => onRemove(id)}>
+          <span class="material-symbols-outlined">delete</span>
+        </button>
+      </div>
     </li>
   );
 };
