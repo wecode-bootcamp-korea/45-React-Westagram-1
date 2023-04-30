@@ -8,7 +8,7 @@ import MainSujeong from './pages/sujeongKim/Main/Main';
 import LoginSujeong from './pages/sujeongKim/Login/Login';
 import MainWonjun from './pages/wonjunLee/Main/Main';
 import LoginWonjun from './pages/wonjunLee/Login/Login';
-import Footer from './pages/sujeongKim/Footer';
+import Footer from './pages/sujeongKim/Footer/Footer';
 
 const Router = () => {
   return (

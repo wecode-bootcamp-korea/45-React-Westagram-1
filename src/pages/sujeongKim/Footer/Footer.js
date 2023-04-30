@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { FOOTER_INFO_LIST } from './FOOTER_INFO_LIST';
 import './footer.scss';
 
 const Footer = () => {
-  const [footerItem, setFooterItem] = useState([]);
-
-  useEffect(() => {
-    fetch('/data/footer.json')
-      .then(res => res.json())
-      .then(data => {
-        setFooterItem(data);
-      });
-  }, []);
-
   return (
     <footer className="mainFooter">
       <ul className="footerTop">
-        {footerItem.map(item => {
+        {FOOTER_INFO_LIST.map(item => {
           return (
             <li key={item.id}>
               <a>{item.listItem}</a>

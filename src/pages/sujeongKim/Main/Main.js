@@ -3,7 +3,7 @@ import './Main.scss';
 import FeedItem from './FeedItem';
 import StoryItem from './StoryItem';
 import Recommend from './Recommend';
-import Footer from '../Footer';
+import Footer from '../Footer/Footer';
 
 const MainSujeong = () => {
   const [feedItem, setFeedItem] = useState([]);

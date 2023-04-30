@@ -1,12 +1,7 @@
 import React from 'react';
 const Recommend = props => {
-  const {
-    id,
-    recommended_user,
-    user_profile_img,
-    follow_user,
-    count_follow_user,
-  } = props.item;
+  const { recommended_user, user_profile_img, follow_user, count_follow_user } =
+    props.item;
   return (
     <li>
       <div className="recommendInfoArea">
