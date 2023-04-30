@@ -1,0 +1,30 @@
+.mainFooter {
+  width: 100%;
+  color: #888888;
+
+  .footerTop {
+    display: flex;
+    flex-flow: wrap;
+    margin-bottom: 20px;
+
+    & > li {
+      margin-bottom: 10px;
+      padding: 0 5px;
+      font-size: 13px;
+      cursor: pointer;
+
+      &::after {
+        content: '•';
+        margin-left: 5px;
+      }
+
+      &:last-child::after {
+        content: none;
+      }
+    }
+  }
+
+  & > p {
+    font-size: 12px;
+  }
+}
