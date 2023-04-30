@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './Main.scss';
 import FeedItem from './FeedItem';
 import StoryItem from './StoryItem';
 import Recommend from './Recommend';
 import Footer from '../Footer/Footer';
+import './Main.scss';
 
 const MainSujeong = () => {
   const [feedItem, setFeedItem] = useState([]);
@@ -51,9 +51,9 @@ const MainSujeong = () => {
           placeholder="검색"
         />
         <div className="navRight">
-          <div className="exploreIcon"> </div>
-          <div className="heartIcon"></div>
-          <div className="profileIcon"></div>
+          <div className="exploreIcon" />
+          <div className="heartIcon" />
+          <div className="profileIcon" />
         </div>
       </nav>
       <main className="mainMain">

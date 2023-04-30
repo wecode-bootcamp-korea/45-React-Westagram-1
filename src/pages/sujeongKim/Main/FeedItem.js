@@ -21,9 +21,7 @@ const FeedItem = props => {
   const resetValue = () => {
     setComment('');
   };
-  const onLike = () => {
-    console.log('like!');
-  };
+
   const onRemove = deleteComment => {
     const newCommentList = addComments.filter(
       comment => comment.id !== deleteComment
@@ -79,7 +77,6 @@ const FeedItem = props => {
                 userId={comment.userId}
                 comment={comment.comment}
                 onRemove={onRemove}
-                onLike={onLike}
               />
             );
           })}

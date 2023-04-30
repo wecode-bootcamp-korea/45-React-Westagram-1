@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.scss';
 import LoginButton from './LoginButton';
+import './Login.scss';
 
 const LoginSujeong = () => {
   const [inputValues, setInputValues] = useState({
@@ -24,7 +24,6 @@ const LoginSujeong = () => {
   };
 
   const token = localStorage.getItem('TOKEN');
-  console.log(token);
 
   const loginOn = e => {
     e.preventDefault();

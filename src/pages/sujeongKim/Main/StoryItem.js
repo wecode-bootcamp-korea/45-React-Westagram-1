@@ -1,7 +1,7 @@
 import React from 'react';
 
 const StoryItem = props => {
-  const { id, user_id, user_profile_img, updated_time } = props.item;
+  const { user_id, user_profile_img, updated_time } = props.item;
   return (
     <li>
       <div className="storyProfileImgBorder">
